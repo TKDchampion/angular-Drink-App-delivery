@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { DrinkService } from './drink.service';
 import { dataInfo, data1Info, Quantity } from './drinkModel';
-// import { AngularFire, FirebaseListObservable } from "angularfire2";
+import { AngularFirestore } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-drink-dm',
@@ -10,7 +11,6 @@ import { dataInfo, data1Info, Quantity } from './drinkModel';
 })
 export class DrinkDmComponent {
 
-  // items$: FirebaseListObservable<any>;
   Quantity = Quantity;
   drinkData: dataInfo;
   drinkItem: dataInfo;
@@ -19,11 +19,12 @@ export class DrinkDmComponent {
   inputName: string;
   addPriceSum: number;
   addList: any[] = [];
-  constructor(private drinkService: DrinkService) {
+  addListName: any[] = [];
+  inputRemark: string;
+  constructor(private drinkService: DrinkService, private dbadd: AngularFirestore) {
     this.index = 0;
     this.getData();
     this.getData1();
-    // this.items$ = af.database.list('items');
   }
 
   getData() {
@@ -43,9 +44,11 @@ export class DrinkDmComponent {
   addCheck(add) {
     if (add.addCheck) {
       this.addList.push(add.price);
+      this.addListName.push(add.name);
     } else {
       let index = this.addList.findIndex(i => i === add.price);
       this.addList.splice(index, 1);
+      this.addListName.splice(index, 1);
     }
     this.addPriceSum = 0;
     this.addList.forEach(i => this.addPriceSum += i);
@@ -70,6 +73,13 @@ export class DrinkDmComponent {
     this.index > 0 
     ? sum = (this.drinkItem.price + this.addPriceSum)*this.index
     : sum = (this.drinkItem.price + this.addPriceSum)
-    console.log(sum)
+    this.dbadd.collection('drink').add({
+      'name': this.inputName,
+      'drinkName': this.drinkItem.name,
+      'add': this.addListName,
+      'price': sum,
+      'remark': this.inputRemark,
+      'quantity': this.index
+    });
   }
 }
