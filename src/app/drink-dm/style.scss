@@ -1,0 +1,128 @@
+.layout {
+    border-style: 1px solid;
+    border-radius: 01em;
+    width: 50%;
+    height: auto;
+    margin: auto;
+    text-align: center;
+    .header {
+        background-color: #880000;
+        border-top-left-radius: 01em;
+        border-top-right-radius: 01em;
+        div {
+            padding: 10px;
+            font-size: 60px;
+            font-weight: 900;
+            color: #ddd;
+        }
+    }
+    .container {
+        padding: 10px;
+        background-color: #dddddd;
+        .line {
+            height: 2px;
+            background-color: #003c4f;
+        }
+        .menu {
+            .cont-title {
+                font-size: 18px;
+                font-weight: bold;
+            }
+            .cont-text {
+                font-size: 18px;
+                font-weight: bold;
+                color: #003c4f;
+                margin: 30px 0;
+                .item {
+                    display: inline-block;
+                    margin: 0px 40px;
+                    &:hover{
+                        cursor: pointer;
+                        text-decoration:underline;
+                    }
+                }
+            }
+        }
+        .order {
+            font-size: 18px;
+            font-weight: bold;
+            .cont-text {
+                text-align: left;
+                display: flex;
+                .left {
+                    color: #000000;
+                    margin-top: 20px;
+                    margin-left: 100px;
+                    .name {
+                        display: flex;
+                        margin: 20px 0 ;
+                        input {
+                            font-family: inherit;
+                            font-size: 18px;
+                            font-weight: bold;
+                            border-width: 0px;
+                            border-bottom: 2px solid;
+                            border-color: #000000;
+                            background-color: transparent;
+                        }
+                    }
+                    .product {
+                        display: flex;
+                        margin: 20px 0;
+                        .drink {
+                            display: flex;
+                            margin: 0 30px 0 0;
+                            .drinkName{
+                                color: #003c4f;
+                            }
+                        }
+                        .price {
+                            display: flex;
+                            margin: 0 25px;
+                            .drinkPrice {
+                                color: #003c4f;
+                            }
+                        }
+                    }
+                    .remark {
+                        display: flex;
+                        justify-content: space-around;
+                        margin: 20px 0 ;
+                        input {
+                            font-family: inherit;
+                            font-size: 18px;
+                            font-weight: bold;
+                            border-width: 0px;
+                            border-bottom: 2px solid;
+                            border-color: #000000;
+                            background-color: transparent;
+                        }
+                    }
+                }
+                .right {
+                    div {
+                        margin: 30px;
+                        img {
+                            width: 450px;
+                            height: 300px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .footer {
+        background-color: #880000;
+        border-bottom-left-radius: 01em;
+        border-bottom-right-radius: 01em;
+        display: flex;
+        justify-content: center;
+        div {
+            margin: 10px;
+        }
+        a {
+            color: #ddd;
+            font-weight: bold;
+        }
+    }
+}

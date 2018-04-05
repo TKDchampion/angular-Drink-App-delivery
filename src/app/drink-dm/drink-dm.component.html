@@ -1,0 +1,79 @@
+<div class="layout">
+  <div class="header">
+    <div>紅豆"藝人"</div>
+  </div>
+
+  <div class="container">
+    <div class="menu">
+      <div class="line"></div>
+      <div class="cont-title">MENU</div>
+      <div class="line"></div>
+      <div class="cont-text">
+        <div class="item" *ngFor="let item of drinkData" (click)="selectDrink(item)">
+          <div class="item-title">{{item.name}}</div>
+          <div class="item-price">{{item.price}}$</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="order">
+      <div class="line"></div>
+      <div class="cont-title">ORDER</div>
+      <div class="line"></div>
+      <div class="cont-text">
+        <div class="left">
+          <div class="name">
+            <div class="labelName">姓名:</div>
+            <input class="inputName" [(ngModel)]="inputName">
+          </div>
+          <div class="product">
+            <div class="drink">
+              <div>食品:</div>
+              <div *ngIf="drinkItem" class="drinkName">{{drinkItem.name}}</div>
+            </div>
+            <div class="price">
+              <div>金額:</div>
+              <div *ngIf="drinkItem" class="drinkPrice">{{drinkItem.price}}$</div>
+            </div>
+          </div>
+          <div class="add">
+            <p *ngFor="let add of drinkAdd">
+              <input type="checkbox" id=`${add.name}` [(ngModel)]="add.addCheck" (change)="addCheck(add)">
+              <label for=`${add.name}`>{{add.name}} + {{add.price}}$</label>
+            </p>
+          </div>
+          <div class="price"></div>
+          <div class="remark">
+            <div class="labelRemark">備註:</div>
+            <input class="inputRemark">
+          </div>
+        </div>
+        <div class="right">
+          <div *ngIf="drinkItem">
+            <img [src]="drinkItem.img">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="btn">
+      <button type="button" class="btn btn-outline-info" [disabled]="!inputName || !drinkItem" (click)="quantityBtn(0, index)">+</button>
+      <label>{{index}}</label>
+      <button type="button" class="btn btn-outline-info" [disabled]="!inputName || !drinkItem" (click)="quantityBtn(1, index)">-</button>
+    </div>
+    <div>
+      <button type="button" class="btn btn-primary" [disabled]="!inputName || !drinkItem" (click)="sum()">確定</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>
+      <a href="">複製訂單網址</a>
+    </div>
+    <div>
+      <a href="">查看目前訂單</a>
+    </div>
+    <div class="new">
+      <a href="">創建新的訂單</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+[
+    {
+        "name": "純薏仁",
+        "price": 30,
+        "img": "https://i.imgur.com/HmXQ0hF.jpg"
+    },
+    {
+        "name": "薏仁汁",
+        "price": 30,
+        "img": "https://i.imgur.com/6JW9N0t.jpg"
+    },
+    {
+        "name": "薏仁牛奶",
+        "price": 40,
+        "img": "https://i.imgur.com/8jyI55S.jpg"
+    },
+    {
+        "name": "紅豆薏仁",
+        "price": 35,
+        "img": "https://i.imgur.com/Zr4T13j.jpg"
+    },
+    {
+        "name": "綠豆薏仁",
+        "price": 35,
+        "img": "https://i.imgur.com/xVUU2Ol.jpg"
+    }
+]
