@@ -11,12 +11,15 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { firebaseConfig } from './../environments/firebase.config'
 import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './/app-routing.module';
+import { DrinkListComponent } from './drink-list/drink-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DrinkDmComponent
+    DrinkDmComponent,
+    DrinkListComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import { FormsModule } from '@angular/forms';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    AngularFireStorageModule // imports firebase/storage only needed for storage features
+    AngularFireStorageModule, // imports firebase/storage only needed for storage features
+    AppRoutingModule
   ],
   providers: [DrinkService],
   bootstrap: [AppComponent]

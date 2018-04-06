@@ -38,7 +38,7 @@
           </div>
           <div class="add">
             <p *ngFor="let add of drinkAdd">
-              <input type="checkbox" id=`${add.name}` [(ngModel)]="add.addCheck" (change)="addCheck(add)">
+              <input type="checkbox" id=`${add.name}` [(ngModel)]="add.addCheck" (change)="addCheck(add)" [checked]="addChecked">
               <label for=`${add.name}`>{{add.name}} + {{add.price}}$</label>
             </p>
           </div>
@@ -70,7 +70,7 @@
       <a href="">複製訂單網址</a>
     </div>
     <div>
-      <a href="">查看目前訂單</a>
+      <a (click)="goList()">查看目前訂單</a>
     </div>
     <div class="new">
       <a href="">創建新的訂單</a>

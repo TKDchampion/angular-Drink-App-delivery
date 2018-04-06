@@ -3,6 +3,7 @@ import { DrinkService } from './drink.service';
 import { dataInfo, data1Info, Quantity } from './drinkModel';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-drink-dm',
@@ -21,8 +22,13 @@ export class DrinkDmComponent {
   addList: any[] = [];
   addListName: any[] = [];
   inputRemark: string;
-  constructor(private drinkService: DrinkService, private dbadd: AngularFirestore) {
-    this.index = 0;
+  addChecked: boolean;
+  constructor(
+    private drinkService: DrinkService,
+     private dbadd: AngularFirestore,
+     private router: Router,
+    ) {
+    this.index = 1;
     this.getData();
     this.getData1();
   }
@@ -59,7 +65,7 @@ export class DrinkDmComponent {
     if (value === this.Quantity.add) {
       this.index = this.index + 1;
     }
-    if (this.index > 0 && value === this.Quantity.less) {
+    if (this.index > 1 && value === this.Quantity.less) {
       this.index = this.index - 1;
     }
   }
@@ -81,5 +87,14 @@ export class DrinkDmComponent {
       'remark': this.inputRemark,
       'quantity': this.index
     });
+    this.inputName = '';
+    this.drinkItem.name = '';
+    this.drinkItem.price = 0;
+    this.inputRemark = '';
+    this.addChecked = false;
+  }
+
+  goList(){
+    this.router.navigate(['drink/drinklist']);
   }
 }

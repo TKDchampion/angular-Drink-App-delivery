@@ -1,0 +1,42 @@
+<div class="layout">
+  <div class="header">
+    <div>紅豆"藝人"</div>
+  </div>
+
+  <div class="container">
+    <table class="drinkList">
+      <tbody>
+        <tr>
+          <th>姓 名</th>
+          <th>品 名</th>
+          <th>配 料</th>
+          <th>數 量</th>
+          <th>價格</th>
+          <th>備 註</th>
+        </tr>
+        <tr *ngFor="let item of items | async" >
+          <td>{{item.name}}</td>
+          <td>{{item.drinkName}}</td>
+          <td>{{item.add}}</td>
+          <td>{{item.quantity}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.remark}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>總數:{{allQuantity}}</td>
+          <td>合計:{{allSum}}</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">
+    <div>
+      <a (click)="goOrder()">回到訂購區</a>
+    </div>
+  </div>
+</div>

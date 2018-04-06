@@ -1,0 +1,73 @@
+.layout {
+    border-style: 1px solid;
+    border-radius: 01em;
+    width: 50%;
+    height: auto;
+    margin: auto;
+    text-align: center;
+    .header {
+        background-color: #880000;
+        border-top-left-radius: 01em;
+        border-top-right-radius: 01em;
+        div {
+            padding: 10px;
+            font-size: 60px;
+            font-weight: 900;
+            color: #ddd;
+        }
+    }
+    .container {
+        background-color: #dddddd;
+        width: 960px;
+        padding: 20px 0 20px 0;
+        .drinkList {
+            width: 100%;
+            margin: 10px 0 0 0;
+        }
+        table {
+            display: table;
+            border-collapse: separate;
+            border-spacing: 2px;
+            border-color: grey;
+            tr {
+                display: table-row;
+                vertical-align: inherit;
+                border-color: inherit;
+                th {
+                    font-weight: bold;
+                    text-align: center;
+                }
+                td {
+                    display: table-cell;
+                    vertical-align: inherit;
+                    text-align: center;
+                    color: #003c4f;
+                    font-weight: bold;
+                    padding: 0 12px 0 12px;
+                }
+                &:hover {
+                    background-color: #F48024;
+                }
+            }   
+        }
+    }
+
+    .footer {
+        background-color: #880000;
+        border-bottom-left-radius: 01em;
+        border-bottom-right-radius: 01em;
+        display: flex;
+        justify-content: center;
+        div {
+            margin: 10px;
+        }
+        a {
+            color: #ddd;
+            font-weight: bold;
+            cursor: pointer;
+            &:hover {
+                text-decoration:underline;
+            }
+        }
+    }
+}
