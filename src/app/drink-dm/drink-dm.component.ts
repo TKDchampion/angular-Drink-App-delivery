@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { DrinkService } from './drink.service';
 import { dataInfo, data1Info, Quantity } from './drinkModel';
 import { AngularFirestore } from 'angularfire2/firestore';
-import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 
 @Component({
@@ -25,9 +24,8 @@ export class DrinkDmComponent {
   addChecked: boolean;
   constructor(
     private drinkService: DrinkService,
-     private dbadd: AngularFirestore,
-     private router: Router,
-    ) {
+    private router: Router,
+  ) {
     this.index = 1;
     this.getData();
     this.getData1();
@@ -36,14 +34,12 @@ export class DrinkDmComponent {
   getData() {
     this.drinkService.getData().subscribe(resp => {
       this.drinkData = resp.json();
-      // console.log(this.drinkData);
     });
   }
 
   getData1() {
     this.drinkService.getData1().subscribe(resp => {
       this.drinkAdd = resp.json();
-      // console.log(this.drinkAdd)
     });
   }
 
@@ -76,10 +72,10 @@ export class DrinkDmComponent {
 
   sum() {
     let sum;
-    this.index > 0 
-    ? sum = (this.drinkItem.price + this.addPriceSum)*this.index
-    : sum = (this.drinkItem.price + this.addPriceSum)
-    this.dbadd.collection('drink').add({
+    this.index > 0
+      ? sum = (this.drinkItem.price + this.addPriceSum) * this.index
+      : sum = (this.drinkItem.price + this.addPriceSum)
+    this.drinkService.addData({
       'name': this.inputName,
       'drinkName': this.drinkItem.name,
       'add': this.addListName,
@@ -94,7 +90,7 @@ export class DrinkDmComponent {
     this.addChecked = false;
   }
 
-  goList(){
+  goList() {
     this.router.navigate(['drink/drinklist']);
   }
 }

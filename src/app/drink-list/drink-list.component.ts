@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { AngularFirestore } from 'angularfire2/firestore';
-import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
+import { DrinkService } from '../drink-dm/drink.service';
 
 @Component({
   selector: 'app-drink-list',
@@ -10,24 +9,30 @@ import { Router } from '@angular/router';
 })
 export class DrinkListComponent {
 
-  items: Observable<any[]>;
   allSum: number;
   allQuantity: number;
-  constructor(db: AngularFirestore, private router: Router) {
-    this.items = db.collection('drink').valueChanges();
-    this.sum();
+  items: any[];
+  constructor(private router: Router, private drinkService: DrinkService) {
+    this.getList();
   }
 
-  sum(){
+  getList() {
+    this.drinkService.getDataList().subscribe(resp => {
+      this.items = resp;
+      this.sum();
+    });
+  }
+
+  sum() {
     this.allSum = 0;
     this.allQuantity = 0;
-    this.items.forEach(i => i.forEach(x => {
-      this.allSum += x.price;
-      this.allQuantity += x.quantity;
-    }));
+    this.items.forEach(i => {
+      this.allSum += i.price;
+      this.allQuantity += i.quantity;
+    });
   }
 
-  goOrder(){
+  goOrder() {
     this.router.navigate(['/drink']);
   }
 
