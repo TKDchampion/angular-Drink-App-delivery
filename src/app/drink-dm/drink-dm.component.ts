@@ -34,6 +34,7 @@ export class DrinkDmComponent {
     this.getData();
     this.getData1();
     this.copyText = location.href;
+    this.id = this.route.params['_value']['id'];
   }
 
   getData() {
@@ -77,7 +78,9 @@ export class DrinkDmComponent {
 
   sum() {
     let sum;
-    this.id = this.route.params['_value']['id'];
+    if(!this.inputRemark){
+      this.inputRemark = "";
+    }
     this.index > 0
       ? sum = (this.drinkItem.price + this.addPriceSum) * this.index
       : sum = (this.drinkItem.price + this.addPriceSum)
@@ -90,8 +93,6 @@ export class DrinkDmComponent {
       'quantity': this.index
     });
     this.inputName = '';
-    this.drinkItem.name = '';
-    this.drinkItem.price = 0;
     this.inputRemark = '';
     this.addChecked = false;
   }
