@@ -21,6 +21,10 @@ export class DrinkListComponent {
     this.id = this.route.params['_value']['id'];
     this.drinkService.getDataList(this.id).subscribe(resp => {
       this.items = resp;
+      let index = resp.length-1;
+      if(this.items[index].name === 0){
+        this.items.splice(index, 1);
+      }
       this.sum();
     });
   }

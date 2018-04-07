@@ -77,11 +77,11 @@ export class DrinkDmComponent {
 
   sum() {
     let sum;
-    let id = this.route.params['_value']['id'];
+    this.id = this.route.params['_value']['id'];
     this.index > 0
       ? sum = (this.drinkItem.price + this.addPriceSum) * this.index
       : sum = (this.drinkItem.price + this.addPriceSum)
-    this.drinkService.addData(id, {
+    this.drinkService.addData(this.id, {
       'name': this.inputName,
       'drinkName': this.drinkItem.name,
       'add': this.addListName,
@@ -97,13 +97,19 @@ export class DrinkDmComponent {
   }
 
   goList() {
-    let id = this.route.params['_value']['id'];
-    this.router.navigate([`drink/drinklist/${id}`]);
+    this.router.navigate([`drink/drinklist/${this.id}`]);
   }
 
   create() {
-    this.id = Math.floor(Math.random()*10000000000);
-    this.drinkService.addData(this.id, {});
-    this.url = `drink/${this.id}`;
+    let id = Math.floor(Math.random()*10000000000);
+    this.drinkService.addData(id, {
+      'name': 0,
+      'drinkName': 0,
+      'add': 0,
+      'price': 0,
+      'remark': 0,
+      'quantity': 0
+    });
+    this.url = `drink/${id}`;
   }
 }
