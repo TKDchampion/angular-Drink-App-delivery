@@ -4,8 +4,7 @@ import { DrinkDmComponent } from './drink-dm/drink-dm.component';
 import { DrinkListComponent } from './drink-list/drink-list.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/drink', pathMatch: 'full' },
-  { path: 'drink', component: DrinkDmComponent },
+  { path: '', redirectTo: '/drink/1', pathMatch: 'full' },
   { path: 'drink/:id', component: DrinkDmComponent },
   { path: 'drink/drinklist/:id', component: DrinkListComponent },
 ];
