@@ -6,14 +6,8 @@ import { DrinkListComponent } from './drink-list/drink-list.component';
 const routes: Routes = [
   { path: '', redirectTo: '/drink', pathMatch: 'full' },
   { path: 'drink', component: DrinkDmComponent },
-  { path: 'drink/drinklist', component: DrinkListComponent },
-  // {
-  //   path: 'drink',
-  //   component: DrinkDmComponent,
-  //   children: [
-  //     { path: 'drinklist', component: DrinkListComponent }
-  //   ]
-  // }
+  { path: 'drink/:id', component: DrinkDmComponent },
+  { path: 'drink/drinklist/:id', component: DrinkListComponent },
 ];
 
 @NgModule({

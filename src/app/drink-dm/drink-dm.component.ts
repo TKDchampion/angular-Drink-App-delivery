@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { DrinkService } from './drink.service';
 import { dataInfo, data1Info, Quantity } from './drinkModel';
-import { Router } from '@angular/router';
-import { Location }from '@angular/common';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-drink-dm',
@@ -23,9 +23,12 @@ export class DrinkDmComponent {
   inputRemark: string;
   addChecked: boolean;
   copyText: string;
+  id: number;
+  url: string;
   constructor(
     private drinkService: DrinkService,
     private router: Router,
+    private route:ActivatedRoute,
   ) {
     this.index = 1;
     this.getData();
@@ -74,10 +77,11 @@ export class DrinkDmComponent {
 
   sum() {
     let sum;
+    let id = this.route.params['_value']['id'];
     this.index > 0
       ? sum = (this.drinkItem.price + this.addPriceSum) * this.index
       : sum = (this.drinkItem.price + this.addPriceSum)
-    this.drinkService.addData({
+    this.drinkService.addData(id, {
       'name': this.inputName,
       'drinkName': this.drinkItem.name,
       'add': this.addListName,
@@ -93,7 +97,13 @@ export class DrinkDmComponent {
   }
 
   goList() {
-    this.router.navigate(['drink/drinklist']);
+    let id = this.route.params['_value']['id'];
+    this.router.navigate([`drink/drinklist/${id}`]);
   }
 
+  create() {
+    this.id = Math.floor(Math.random()*10000000000);
+    this.drinkService.addData(this.id, {});
+    this.url = `drink/${this.id}`;
+  }
 }

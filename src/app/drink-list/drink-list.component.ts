@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { DrinkService } from '../drink-dm/drink.service';
 
 @Component({
@@ -12,12 +12,14 @@ export class DrinkListComponent {
   allSum: number;
   allQuantity: number;
   items: any[];
-  constructor(private router: Router, private drinkService: DrinkService) {
+  id: number;
+  constructor(private router: Router, private drinkService: DrinkService, private route: ActivatedRoute,) {
     this.getList();
   }
 
   getList() {
-    this.drinkService.getDataList().subscribe(resp => {
+    this.id = this.route.params['_value']['id'];
+    this.drinkService.getDataList(this.id).subscribe(resp => {
       this.items = resp;
       this.sum();
     });
@@ -33,7 +35,7 @@ export class DrinkListComponent {
   }
 
   goOrder() {
-    this.router.navigate(['/drink']);
+    this.router.navigate([`/drink/${this.id}`]);
   }
 
 }
