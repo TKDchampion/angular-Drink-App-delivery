@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { DrinkService } from './drink.service';
 import { dataInfo, data1Info, Quantity } from './drinkModel';
-import { AngularFirestore } from 'angularfire2/firestore';
 import { Router } from '@angular/router';
+import { Location }from '@angular/common';
 
 @Component({
   selector: 'app-drink-dm',
@@ -22,6 +22,7 @@ export class DrinkDmComponent {
   addListName: any[] = [];
   inputRemark: string;
   addChecked: boolean;
+  copyText: string;
   constructor(
     private drinkService: DrinkService,
     private router: Router,
@@ -29,6 +30,7 @@ export class DrinkDmComponent {
     this.index = 1;
     this.getData();
     this.getData1();
+    this.copyText = location.href;
   }
 
   getData() {
@@ -93,4 +95,5 @@ export class DrinkDmComponent {
   goList() {
     this.router.navigate(['drink/drinklist']);
   }
+
 }

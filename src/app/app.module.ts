@@ -13,6 +13,7 @@ import { firebaseConfig } from './../environments/firebase.config'
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './/app-routing.module';
 import { DrinkListComponent } from './drink-list/drink-list.component';
+import { ClipboardModule } from 'ngx-clipboard';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { DrinkListComponent } from './drink-list/drink-list.component';
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
-    AppRoutingModule
+    AppRoutingModule,
+    ClipboardModule
   ],
   providers: [DrinkService],
   bootstrap: [AppComponent]
