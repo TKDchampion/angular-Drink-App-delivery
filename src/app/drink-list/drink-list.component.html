@@ -13,6 +13,7 @@
           <th>數 量</th>
           <th>價格</th>
           <th>備 註</th>
+          <th>操作</th>
         </tr>
         <tr *ngFor="let item of items" >
           <td>{{item.name}}</td>
@@ -21,6 +22,7 @@
           <td>{{item.quantity}}</td>
           <td>{{item.price}}</td>
           <td>{{item.remark}}</td>
+          <th><button type="button" class="btn btn-danger btn-sm" (click)="delete(item.id)">Delete</button></th>
         </tr>
         <tr>
           <td></td>

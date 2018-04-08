@@ -12,7 +12,7 @@ export class DrinkListComponent {
   allSum: number;
   allQuantity: number;
   items: any[];
-  id: number;
+  id: string;
   constructor(private router: Router, private drinkService: DrinkService, private route: ActivatedRoute,) {
     this.getList();
   }
@@ -21,11 +21,9 @@ export class DrinkListComponent {
     this.id = this.route.params['_value']['id'];
     this.drinkService.getDataList(this.id).subscribe(resp => {
       this.items = resp;
-      let index = this.items.findIndex(i => i.name === 0);
-      if(this.items[index].name === 0){
-        this.items.splice(index, 1);
-      }
       this.sum();
+      let idi = 0;
+      this.drinkService.delete(this.id, idi);
     });
   }
 
@@ -40,6 +38,10 @@ export class DrinkListComponent {
 
   goOrder() {
     this.router.navigate([`/drink/${this.id}`]);
+  }
+
+  delete(idi){
+    this.drinkService.delete(this.id, idi);
   }
 
 }

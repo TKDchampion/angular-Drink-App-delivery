@@ -15,12 +15,20 @@ export class DrinkService {
     return this.http.get('assets/Data/data1.json');
   }
 
-  addData(id: number,parma: any) {
-    return this.db.collection(`${id}`).add(parma);
+  addData(id: string, parma: any) {
+    return this.db.collection(`${id}`).doc(`${parma.id}`).set(parma);
   }
 
-  getDataList(id: number) {
+  create(){
+    let id = this.db.createId();
+    return id;
+  }
+
+  getDataList(id: string) {
     return this.db.collection(`${id}`).valueChanges();
   }
 
+  delete(id:string, idi: any){
+    return this.db.collection(`${id}`).doc(`${idi}`).delete();
+  }
 }

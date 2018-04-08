@@ -23,7 +23,7 @@ export class DrinkDmComponent {
   inputRemark: string;
   addChecked: boolean;
   copyText: string;
-  id: number;
+  id: string;
   url: string;
   constructor(
     private drinkService: DrinkService,
@@ -78,6 +78,7 @@ export class DrinkDmComponent {
 
   sum() {
     let sum;
+    let idi = this.drinkService.create();
     if(!this.inputRemark){
       this.inputRemark = "";
     }
@@ -85,6 +86,7 @@ export class DrinkDmComponent {
       ? sum = (this.drinkItem.price + this.addPriceSum) * this.index
       : sum = (this.drinkItem.price + this.addPriceSum)
     this.drinkService.addData(this.id, {
+      'id': idi,
       'name': this.inputName,
       'drinkName': this.drinkItem.name,
       'add': this.addListName,
@@ -95,6 +97,7 @@ export class DrinkDmComponent {
     this.inputName = '';
     this.inputRemark = '';
     this.addChecked = false;
+    this.index = 1;
   }
 
   goList() {
@@ -102,8 +105,9 @@ export class DrinkDmComponent {
   }
 
   create() {
-    let id = Math.floor(Math.random()*10000000000);
-    this.drinkService.addData(id, {
+    this.id = this.drinkService.create();
+    this.drinkService.addData(this.id, {
+      'id': 0,
       'name': 0,
       'drinkName': 0,
       'add': 0,
@@ -111,6 +115,6 @@ export class DrinkDmComponent {
       'remark': 0,
       'quantity': 0
     });
-    this.url = `drink/${id}`;
+    this.url = `drink/${this.id}`;
   }
 }
