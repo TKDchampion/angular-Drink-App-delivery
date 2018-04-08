@@ -14,7 +14,7 @@ export class DrinkDmComponent {
   Quantity = Quantity;
   drinkData: dataInfo;
   drinkItem: dataInfo;
-  drinkAdd: data1Info;
+  drinkAdd: data1Info[] = [];
   index: number;
   inputName: string;
   addPriceSum: number;
@@ -28,7 +28,7 @@ export class DrinkDmComponent {
   constructor(
     private drinkService: DrinkService,
     private router: Router,
-    private route:ActivatedRoute,
+    private route: ActivatedRoute,
   ) {
     this.index = 1;
     this.getData();
@@ -46,6 +46,7 @@ export class DrinkDmComponent {
   getData1() {
     this.drinkService.getData1().subscribe(resp => {
       this.drinkAdd = resp.json();
+      this.drinkAdd.forEach(i => i.addCheck = false);
     });
   }
 
@@ -53,6 +54,8 @@ export class DrinkDmComponent {
     if (add.addCheck) {
       this.addList.push(add.price);
       this.addListName.push(add.name);
+    } else if (this.drinkAdd.forEach(i => i.addCheck === false)) {
+      this.addList.forEach(i => i = 0);
     } else {
       let index = this.addList.findIndex(i => i === add.price);
       this.addList.splice(index, 1);
@@ -79,12 +82,13 @@ export class DrinkDmComponent {
   sum() {
     let sum;
     let idi = this.drinkService.create();
-    if(!this.inputRemark){
+    if (!this.inputRemark) {
       this.inputRemark = "";
     }
-    this.index > 0
-      ? sum = (this.drinkItem.price + this.addPriceSum) * this.index
-      : sum = (this.drinkItem.price + this.addPriceSum)
+    if (this.drinkAdd.every(i => i.addCheck === false)) {
+      this.addPriceSum = 0;
+    }
+    sum = (this.drinkItem.price + this.addPriceSum) * this.index;
     this.drinkService.addData(this.id, {
       'id': idi,
       'name': this.inputName,

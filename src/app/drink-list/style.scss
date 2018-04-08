@@ -5,6 +5,9 @@
     height: auto;
     margin: auto;
     text-align: center;
+    -webkit-flex: initial;
+          flex: initial;
+    min-width: 375px;
     .header {
         background-color: #880000;
         border-top-left-radius: 01em;
@@ -18,7 +21,6 @@
     }
     .container {
         background-color: #dddddd;
-        width: 960px;
         padding: 20px 0 20px 0;
         .drinkList {
             width: 100%;
