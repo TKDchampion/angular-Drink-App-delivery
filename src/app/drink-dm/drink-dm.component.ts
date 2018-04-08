@@ -98,10 +98,13 @@ export class DrinkDmComponent {
       'remark': this.inputRemark,
       'quantity': this.index
     });
+    this.drinkItem.name = '';
+    this.drinkItem.price = 0;
     this.inputName = '';
     this.inputRemark = '';
     this.addChecked = false;
     this.index = 1;
+    this.getData();
   }
 
   goList() {
