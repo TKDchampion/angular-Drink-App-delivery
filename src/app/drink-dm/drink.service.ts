@@ -19,6 +19,10 @@ export class DrinkService {
     return this.db.collection(`${id}`).doc(`${parma.id}`).set(parma);
   }
 
+  addCollactionId(id: string){
+    return this.db.collection('admin');
+  }
+
   create(){
     let id = this.db.createId();
     return id;

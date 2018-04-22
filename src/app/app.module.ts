@@ -15,6 +15,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DrinkListComponent } from './drink-list/drink-list.component';
 import { ClipboardModule } from 'ngx-clipboard';
 import { DrinkHomeComponent } from './drink-home/drink-home.component';
+import { DrinkAdminComponent } from './drink-admin/drink-admin.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { DrinkHomeComponent } from './drink-home/drink-home.component';
     AppComponent,
     DrinkDmComponent,
     DrinkListComponent,
-    DrinkHomeComponent
+    DrinkHomeComponent,
+    DrinkAdminComponent
   ],
   imports: [
     BrowserModule,

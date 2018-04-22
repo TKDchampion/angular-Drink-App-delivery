@@ -14,8 +14,14 @@ export class DrinkHomeComponent {
   }
 
   goOrder() {
-    //  let id = this.drinkService.create();
-    //  this.router.navigate([`drink/${id}`]);
+    let str = prompt("請輸入完整地址", "請輸入完整地址");
+    if (str) {
+      let id = this.drinkService.create();
+      this.router.navigate([`drink/${id}`]);
+    }
+    else {
+      alert("您取消了創建訂單");
+    }
   }
 
 }
