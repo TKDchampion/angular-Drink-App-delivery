@@ -21,7 +21,12 @@
     }
     .container {
         background-color: #dddddd;
-        padding: 20px 0 20px 0;
+        padding: 0px 0 20px 0;
+        .talk {
+            color: #880000;
+            font-weight:bold;
+            background-color: #ff9600;
+        }
         .drinkList {
             width: 100%;
         }

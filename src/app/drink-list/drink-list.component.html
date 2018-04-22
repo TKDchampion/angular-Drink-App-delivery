@@ -4,6 +4,7 @@
   </div>
 
   <div class="container">
+    <div class="talk">請來電告知您的訂單編號: ({{id}})</div>
     <table class="drinkList">
       <tbody>
         <tr>
@@ -15,14 +16,16 @@
           <th>備 註</th>
           <th>操作</th>
         </tr>
-        <tr *ngFor="let item of items" >
+        <tr *ngFor="let item of items">
           <td>{{item.name}}</td>
           <td>{{item.drinkName}}</td>
           <td>{{item.add}}</td>
           <td>{{item.quantity}}</td>
           <td>{{item.price}}</td>
           <td>{{item.remark}}</td>
-          <th><button type="button" class="btn btn-danger btn-sm" (click)="delete(item.id)">Delete</button></th>
+          <th>
+            <button type="button" class="btn btn-danger btn-sm" (click)="delete(item.id)">刪除</button>
+          </th>
         </tr>
         <tr>
           <td></td>
@@ -30,7 +33,6 @@
           <td></td>
           <td>總數:{{allQuantity}}</td>
           <td>合計:{{allSum}}</td>
-          <td></td>
         </tr>
       </tbody>
     </table>

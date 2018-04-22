@@ -115,15 +115,6 @@ export class DrinkDmComponent {
 
   create() {
     this.id = this.drinkService.create();
-    this.drinkService.addData(this.id, {
-      'id': 0,
-      'name': 0,
-      'drinkName': 0,
-      'add': 0,
-      'price': 0,
-      'remark': 0,
-      'quantity': 0
-    });
     this.url = `drink/${this.id}`;
   }
 }

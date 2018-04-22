@@ -14,13 +14,15 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './/app-routing.module';
 import { DrinkListComponent } from './drink-list/drink-list.component';
 import { ClipboardModule } from 'ngx-clipboard';
+import { DrinkHomeComponent } from './drink-home/drink-home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DrinkDmComponent,
-    DrinkListComponent
+    DrinkListComponent,
+    DrinkHomeComponent
   ],
   imports: [
     BrowserModule,

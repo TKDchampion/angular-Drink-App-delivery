@@ -22,8 +22,6 @@ export class DrinkListComponent {
     this.drinkService.getDataList(this.id).subscribe(resp => {
       this.items = resp;
       this.sum();
-      let idi = 0;
-      this.drinkService.delete(this.id, idi);
     });
   }
 
