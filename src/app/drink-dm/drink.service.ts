@@ -19,8 +19,12 @@ export class DrinkService {
     return this.db.collection(`${id}`).doc(`${parma.id}`).set(parma);
   }
 
-  addCollactionId(id: string){
-    return this.db.collection('admin');
+  addCollactionId(parma: any){
+    return this.db.collection('admin').add(parma);
+  }
+
+  getCollactionIdList() {
+    return this.db.collection('admin').valueChanges();
   }
 
   create(){

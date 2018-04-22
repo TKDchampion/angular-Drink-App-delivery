@@ -1,3 +1,44 @@
-<p>
-  drink-admin works!
-</p>
+<ul class="list-group">
+  <li [ngClass]="{'yellow': yellow, 'blue': blue, 'green': green}">
+    <div *ngFor="let object of list">
+      <div class="collactionId">訂單編號:{{object.id}}</div>
+      <table>
+        <tbody>
+          <tr>
+            <th>姓 名</th>
+            <th>品 名</th>
+            <th>配 料</th>
+            <th>數 量</th>
+            <th>價格</th>
+            <th>備 註</th>
+            <th>操作</th>
+          </tr>
+          <tr *ngFor="let item of object.items">
+            <td>{{item.name}}</td>
+            <td>{{item.drinkName}}</td>
+            <td>{{item.add}}</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.remark}}</td>
+            <th>
+              <button type="button" class="btn btn-danger btn-sm" (click)="delete(item.id)">刪除</button>
+            </th>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>總數:{{allQuantity}}</td>
+            <td>合計:{{allSum}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+        <button class="btn btn-primary btn-sm" (click)="ok()">確認訂單</button>
+        <button class="btn btn-success btn-sm" (click)="finish()">完成訂單</button>
+        <button class="btn btn-danger btn-sm" (click)="delete()">刪除訂單</button>
+        <button class="btn btn-secondary btn-sm" (click)="cancel()">未核訂單</button>
+      </div>
+    </div>
+  </li>
+</ul>

@@ -9,19 +9,20 @@ import { Router } from '@angular/router';
 })
 export class DrinkHomeComponent {
 
+  inputName: string;
+  inputAdress: string;
   constructor(private drinkService: DrinkService, private router: Router) {
 
   }
 
   goOrder() {
-    let str = prompt("請輸入完整地址", "請輸入完整地址");
-    if (str) {
-      let id = this.drinkService.create();
-      this.router.navigate([`drink/${id}`]);
-    }
-    else {
-      alert("您取消了創建訂單");
-    }
+    this.inputName = `${this.inputAdress}`+`${Math.floor(Math.random()*50)}`;
+    this.router.navigate([`drink/${this.inputName}`]);
+    this.drinkService.addCollactionId({
+      id: this.inputName,
+      adress: this.inputAdress,
+      'color': 'yellow'
+    });
   }
 
 }

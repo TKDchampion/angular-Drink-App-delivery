@@ -1,0 +1,35 @@
+
+.list-group {
+    .collactionId {
+        font-size: 20px;
+        margin: 10px;
+        color: darkorange;
+        text-align: center;
+    }
+    table {
+        width: 100%;
+        margin: 0 60px;
+        font-size: 18px;
+    }
+    .yellow {
+        background-color: #fcf8e3;
+        padding: 20px 0 10px 0;
+        .btn {
+            margin: 20px 0 0 0;
+        }
+    }
+    .blue {
+        background-color: #d9edf7;
+        padding: 20px 0 10px 0;
+        .btn {
+            margin: 20px 0 0 0;
+        }
+    }
+    .green {
+        background-color: #dff0d8;
+        padding: 20px 0 10px 0;
+        .btn {
+            margin: 20px 0 0 0;
+        }
+    }
+}

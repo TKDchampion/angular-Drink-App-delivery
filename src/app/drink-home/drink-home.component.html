@@ -7,10 +7,10 @@
     <table class="table table-striped">
       <tbody>
         <tr>
-          <td>1. 創建訂單</td>
+          <td>1. 輸入資料</td>
         </tr>
         <tr>
-          <td>2. 輸入資料</td>
+          <td>2. 創建訂單</td>
         </tr>
         <tr>
           <td>3. 點選品項</td>
@@ -26,8 +26,18 @@
         </tr>
       </tbody>
     </table>
-    <button class="btn btn-primary" (click)="goOrder()">創建訂單</button>
-    <button class="btn btn-danger" (click)="goBack()">回到網站</button>
+    <div class="inputData">
+      <span>
+        請輸入創建者:
+        <input type="text" value="個人/公司名稱" [(ngModel)]="inputName">
+      </span>
+      <span>
+        請輸入外送地址:
+        <input type="text" value="地址" [(ngModel)]="inputAdress">
+      </span>
+    </div>
+    <button class="btn btn-primary" (click)="goOrder()" [disabled]="!inputName || !inputAdress">創建訂單</button>
+    <button class="btn btn-danger" (click)="goBack()"> 回到網站</button>
   </div>
 
   <div class="footer">

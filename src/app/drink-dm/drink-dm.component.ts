@@ -113,8 +113,12 @@ export class DrinkDmComponent {
     this.router.navigate([`drink/drinklist/${this.id}`]);
   }
 
-  create() {
-    this.id = this.drinkService.create();
-    this.url = `drink/${this.id}`;
+  // create() {
+  //   this.id = this.drinkService.create();
+  //   this.url = `drink/${this.id}`;
+  // }
+
+  goHome(){
+    this.router.navigate(['drink/home']);
   }
 }
