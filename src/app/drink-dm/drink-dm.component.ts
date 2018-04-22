@@ -25,6 +25,7 @@ export class DrinkDmComponent {
   copyText: string;
   id: string;
   url: string;
+  talk: boolean;
   constructor(
     private drinkService: DrinkService,
     private router: Router,
@@ -81,6 +82,7 @@ export class DrinkDmComponent {
 
   sum() {
     let sum;
+    this.talk = true;
     let idi = this.drinkService.create();
     if (!this.inputRemark) {
       this.inputRemark = "";

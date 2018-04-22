@@ -63,6 +63,7 @@
     <div>
       <button type="button" class="btn btn-primary" [disabled]="!inputName || !drinkItem" (click)="sum()">確定</button>
     </div>
+    <span *ngIf="talk">若訂購完成，請查看目前訂單!!</span>
   </div>
 
   <div class="footer">
