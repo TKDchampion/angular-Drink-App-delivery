@@ -1,10 +1,19 @@
-
+.input-group {
+    display: flex;
+    flex: left;
+    width: 80%;
+    margin: 10px auto;
+}
 .list-group {
     .collactionId {
         font-size: 20px;
         margin: 10px;
         color: darkorange;
         text-align: center;
+        &:hover{
+            cursor: pointer;
+            text-decoration: underline;
+        }
     }
     table {
         width: 100%;

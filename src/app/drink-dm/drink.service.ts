@@ -20,7 +20,11 @@ export class DrinkService {
   }
 
   addCollactionId(parma: any){
-    return this.db.collection('admin').add(parma);
+    return this.db.collection('admin').doc(`${parma.id}`).set(parma);
+  }
+
+  addCollactionIdUpdate(parma: any){
+    return this.db.collection('admin').doc(`${parma.id}`).update(parma);
   }
 
   getCollactionIdList() {
@@ -39,4 +43,5 @@ export class DrinkService {
   delete(id:string, idi: any){
     return this.db.collection(`${id}`).doc(`${idi}`).delete();
   }
+  
 }

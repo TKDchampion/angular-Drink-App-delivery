@@ -24,7 +24,7 @@
           <td>{{item.price}}</td>
           <td>{{item.remark}}</td>
           <th>
-            <button type="button" class="btn btn-danger btn-sm" (click)="delete(item.id)">刪除</button>
+            <button type="button" class="btn btn-danger btn-sm" (click)="delete(item.id)" *ngIf="!blue">刪除</button>
           </th>
         </tr>
         <tr>

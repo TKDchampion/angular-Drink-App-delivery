@@ -16,12 +16,16 @@ export class DrinkHomeComponent {
   }
 
   goOrder() {
-    this.inputName = `${this.inputAdress}`+`${Math.floor(Math.random()*50)}`;
+    this.inputName = `${this.inputName}` + `${Math.floor(Math.random() * 50)}`;
     this.router.navigate([`drink/${this.inputName}`]);
     this.drinkService.addCollactionId({
       id: this.inputName,
       adress: this.inputAdress,
-      'color': 'yellow'
+      yellow: true,
+      blue: false,
+      green: false,
+      allSum: 0,
+      allQuantity: 0
     });
   }
 
