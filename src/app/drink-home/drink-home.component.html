@@ -37,12 +37,23 @@
       </span>
     </div>
     <button class="btn btn-primary" (click)="goOrder()" [disabled]="!inputName || !inputAdress">創建訂單</button>
-    <button class="btn btn-danger"> 回到網站</button>
+    <button class="btn btn-success" (click)="open()">管理員按鈕</button>
+    <div class="inputData" *ngIf="openButton">
+      <span>
+        請輸入帳號:
+        <input type="text" value="個人/公司名稱" [(ngModel)]="account">
+      </span>
+      <span>
+        請輸入密碼:
+        <input type="text" value="地址" [(ngModel)]="password">
+      </span>
+      <button class="btn btn-danger" (click)="comparison()">GO</button>
+    </div>
   </div>
 
   <div class="footer">
     <div>
-      歡迎來到紅豆"藝人"外送區
+      <a href="http://">回到紅豆"藝人"官網</a>
     </div>
   </div>
 </div>

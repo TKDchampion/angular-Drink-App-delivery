@@ -11,8 +11,15 @@ export class DrinkHomeComponent {
 
   inputName: string;
   inputAdress: string;
+  account: string;
+  password: string;
+  number: any;
+  compar: boolean;
+  openButton: boolean = false;
   constructor(private drinkService: DrinkService, private router: Router) {
-
+    this.drinkService.getDataList("number").subscribe(resp => {
+      this.number = resp
+    });
   }
 
   goOrder() {
@@ -29,4 +36,15 @@ export class DrinkHomeComponent {
     });
   }
 
+  open(){
+    this.openButton = !this.openButton;
+  }
+
+  comparison(){
+    if(this.account === this.number.account && this.password === this.number.password && this.account && this.password){
+      this.router.navigate([`drink/admin`]);
+    }else{
+      alert("帳密錯誤")
+    }
+  }
 }

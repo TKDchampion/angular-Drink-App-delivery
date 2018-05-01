@@ -28,6 +28,14 @@
         .inputData {
             margin: 10px;
         }
+        a {
+            background-color: #D64D4A;
+            border-color: #D64D4A;
+            border-top-left-radius: 01em;
+            border-top-right-radius: 01em;
+            border-bottom-left-radius: 01em;
+            border-bottom-right-radius: 01em;
+        }
     }
 
     .footer {
@@ -38,8 +46,10 @@
         justify-content: center;
         div {
             margin: 10px;
-            color: #ddd;
-            font-weight: bold;
+            a{
+                color: #ddd;
+                font-weight: bold;
+            }
         }
     }
 }
