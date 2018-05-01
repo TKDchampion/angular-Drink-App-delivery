@@ -18,7 +18,7 @@ export class DrinkHomeComponent {
   openButton: boolean = false;
   constructor(private drinkService: DrinkService, private router: Router) {
     this.drinkService.getDataList("number").subscribe(resp => {
-      this.number = resp
+      this.number = resp;
     });
   }
 
@@ -41,7 +41,7 @@ export class DrinkHomeComponent {
   }
 
   comparison(){
-    if(this.account === this.number.account && this.password === this.number.password && this.account && this.password){
+    if(this.account === this.number[0].account && this.password === this.number[0].password && this.account && this.password){
       this.router.navigate([`drink/admin`]);
     }else{
       alert("帳密錯誤")
