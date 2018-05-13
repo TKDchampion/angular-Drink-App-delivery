@@ -2,31 +2,36 @@
     {
         "name": "純薏仁",
         "price": 30,
-        "img": "https://i.imgur.com/jc4UHFW.jpg"
+        "img": "http://www.redyiren.com/images/yiren.jpg"
     },
     {
         "name": "薏仁汁",
         "price": 30,
-        "img": "https://i.imgur.com/IL4o6bs.jpg"
-    },
-    {
-        "name": "薏仁牛奶",
-        "price": 40,
-        "img": "https://i.imgur.com/8jyI55S.jpg"
+        "img": "http://www.redyiren.com/images/yirenjuce.jpg "
     },
     {
         "name": "紅豆薏仁",
         "price": 35,
-        "img": "https://i.imgur.com/Zr4T13j.jpg"
+        "img": "http://www.redyiren.com/images/deliveryred.jpg"
     },
     {
         "name": "花豆薏仁",
         "price": 35,
-        "img": "https://i.imgur.com/Djhy923.jpg"
+        "img": "http://www.redyiren.com/images/deliveryflower.jpg"
     },
     {
         "name": "綠豆薏仁",
         "price": 35,
-        "img": "https://i.imgur.com/sfFuJX5.jpg"
+        "img": "http://www.redyiren.com/images/deliverygreen.jpg"
+    },
+    {
+        "name": "薏仁牛奶",
+        "price": 40,
+        "img": "http://www.redyiren.com/images/yirenmilk.jpg"
+    },
+    {
+        "name": "冰糖銀耳",
+        "price": 50,
+        "img": "http://www.redyiren.com/images/deliveryfungus.jpg"
     }
 ]

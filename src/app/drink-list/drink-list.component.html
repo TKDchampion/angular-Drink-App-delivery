@@ -4,7 +4,8 @@
   </div>
 
   <div class="container">
-    <div class="talk">請來電告知您的訂單編號: ({{id}})</div>
+    <div class="talk">請記住您的訂單編號: ({{id}})
+    </div>
     <table class="drinkList">
       <tbody>
         <tr>
@@ -33,9 +34,17 @@
           <td></td>
           <td>總數:{{allQuantity}}</td>
           <td>合計:{{allSum}}</td>
+          <td></td>
+          <td>
+            <button class="btn btn-success btn-sm" (click)="openBtn()">匯款後五碼</button>
+          </td>
         </tr>
       </tbody>
     </table>
+    <div class="inputGroup" *ngIf="open">
+      <input type="text" value="請輸入匯款後五碼" [(ngModel)]="inputText">
+      <button class="btn btn-primary btn-sm" (click)="ok()">送出訂單</button>
+    </div>
   </div>
 
   <div class="footer">

@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "angular-first-e9ae5"
+    "default": "angular-first-e9ae5",
+    "Hosting": "angular-admin-5cdb9"
   }
 }

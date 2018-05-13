@@ -1,13 +1,14 @@
 <div class="input-group">
-  <input type="text" class="form-control" placeholder="請輸入訂單編號" aria-label="Recipient's username" aria-describedby="basic-addon2" (keyup)="searchGroup(searchTxt.value)" #searchTxt>
+  <input type="text" class="form-control" placeholder="請輸入訂單編號" aria-label="Recipient's username" aria-describedby="basic-addon2"
+    (keyup)="searchGroup(searchTxt.value)" #searchTxt>
   <div class="input-group-append">
     <button class="btn btn-outline-secondary" type="button" (click)="searchGroup(searchTxt.value)">搜尋訂單編號</button>
   </div>
 </div>
 <ul class="list-group">
-  <li >
+  <li>
     <div *ngFor="let object of list" [ngClass]="{'yellow': object.yellow, 'blue': object.blue, 'green': object.green}">
-        <div class="collactionId" (click)="goOrder(object.id)">訂單編號:{{object.id}}</div>
+      <div class="collactionId" (click)="goOrder(object.id)"> (訂單編號:{{object.id}}) &nbsp; (ATM:{{object.atm}})</div>
       <table>
         <tbody>
           <tr>
@@ -26,6 +27,7 @@
             <td>{{item.quantity}}</td>
             <td>{{item.price}}</td>
             <td>{{item.remark}}</td>
+            <td></td>
           </tr>
           <tr>
             <td></td>

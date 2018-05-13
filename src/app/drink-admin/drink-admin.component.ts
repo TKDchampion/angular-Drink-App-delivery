@@ -37,7 +37,8 @@ export class DrinkAdminComponent {
             green: i.green,
             allQuantity: i.allQuantity,
             allSum: i.allSum,
-            items: this.items
+            items: this.items,
+            atm: i.atm
           });
           this.viewList = this.list;
         });

@@ -16,10 +16,21 @@ export class DrinkHomeComponent {
   number: any;
   compar: boolean;
   openButton: boolean = false;
+  openOrder: boolean;
+  openOrderText: string;
   constructor(private drinkService: DrinkService, private router: Router) {
     this.drinkService.getDataList("number").subscribe(resp => {
       this.number = resp;
     });
+  }
+
+  openOrderNumber(){
+    this.openOrder = !this.openOrder;
+    this.openButton = false;
+  }
+
+  goOrderNumber(){
+    this.router.navigate([`drink/drinklist/${this.openOrderText}`]);
   }
 
   goOrder() {
@@ -38,6 +49,7 @@ export class DrinkHomeComponent {
 
   open(){
     this.openButton = !this.openButton;
+    this.openOrder = false;
   }
 
   comparison(){
